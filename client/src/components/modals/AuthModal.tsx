@@ -5,7 +5,7 @@ import LoginForm from '../forms/Auth/LoginForm';
 import PassResetForm from '../forms/Auth/PassResetForm';
 import BaseModal from './BaseModal';
 
-const AuthModal = () => {
+const AuthModal: React.FC = () => {
   const [show, setShow] = useState(false);
   const [section, setSection] = useState<'login'|'reset'>('login');
   const { token } = useQueryString();
@@ -31,7 +31,7 @@ const AuthModal = () => {
       centered
       onClosed={() => setShow(false)}
     >
-      {section === 'login' ? <LoginForm /> : <PassResetForm token={token} />}
+      {section === 'login' ? <LoginForm resetPass={() => setSection('reset')} /> : <PassResetForm login={() => setSection('login')} token={token} />}
     </BaseModal>
   );
 };

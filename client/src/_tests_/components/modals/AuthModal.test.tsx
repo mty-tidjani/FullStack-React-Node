@@ -1,5 +1,6 @@
 import React from 'react';
 import { ShallowWrapper, shallow } from 'enzyme';
+import { MemoryRouter } from 'react-router-dom';
 import AuthModal from '../../../components/modals/AuthModal';
 import BaseModal from '../../../components/modals/BaseModal';
 
@@ -7,11 +8,10 @@ describe('AuthModal', () => {
   let wrapper: ShallowWrapper<any>;
 
   beforeEach(() => {
-    wrapper = shallow(<AuthModal />);
+    wrapper = shallow(<MemoryRouter initialEntries={['/abc?']}><AuthModal /></MemoryRouter>);
   });
 
   it('should check if AuthModal is rendering BaseModal', () => {
-    // console.log(wrapper.debug());
-    expect(wrapper.find(BaseModal)).toHaveLength(1);
+    expect(wrapper.find(AuthModal).dive().find(BaseModal)).toHaveLength(1);
   });
 });

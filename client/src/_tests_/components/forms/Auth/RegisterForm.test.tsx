@@ -11,6 +11,6 @@ describe('Render LoginForm', () => {
   });
 
   it('should check if RegisterForm is rendered', () => {
-    expect(wrapper.find('#register_form').text()).toContain('Sign up');
+    expect(wrapper.find('#register_form')).toHaveLength(1);
   });
 });

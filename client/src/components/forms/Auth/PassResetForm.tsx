@@ -1,11 +1,13 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect } from 'react';
+import Lnk from '../../common/Lnk';
 
 type PassResetFormProps = {
   token: string|undefined
+  login: () => void
 }
 
-const PassResetForm:React.FC<PassResetFormProps> = ({ token }) => {
+const PassResetForm:React.FC<PassResetFormProps> = ({ login, token }) => {
   useEffect(() => {
     if (token) {
     // Todo request the backend to verify token
@@ -23,7 +25,10 @@ const PassResetForm:React.FC<PassResetFormProps> = ({ token }) => {
             <label htmlFor="exampleInputEmail1">Email address</label>
             <input id="exampleInputEmail1" type="email" />
             <i className="ti-email" />
-            <div className="text-danger" />
+            <div className="text-danger">e</div>
+          </div>
+          <div className="col text-right m-2">
+            <Lnk onClick={login}>Back to login!</Lnk>
           </div>
           <div className="submit-btn-area">
             <button id="form_submit" type="submit">

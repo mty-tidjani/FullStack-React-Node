@@ -2,7 +2,11 @@
 import React from 'react';
 import Lnk from '../../common/Lnk';
 
-const LoginForm:React.FC = () => (
+type LoginFormProps = {
+  resetPass: () => void
+}
+
+const LoginForm:React.FC<LoginFormProps> = ({ resetPass }) => (
   <div id="login_form">
     <form onSubmit={(e) => {
       e.preventDefault();
@@ -33,7 +37,7 @@ const LoginForm:React.FC = () => (
             </div>
           </div>
           <div className="col-6 text-right">
-            <Lnk>Forgot Password?</Lnk>
+            <Lnk onClick={resetPass}>Forgot Password?</Lnk>
           </div>
         </div>
         <div className="submit-btn-area">

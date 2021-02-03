@@ -4,7 +4,7 @@ const Lnk: React.FC<React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAncho
   children, onClick, ...props
 }) => (
   <a
-    href="x"
+    href="?"
     onClick={(e) => {
       e.preventDefault();
       if (onClick) onClick(e);
