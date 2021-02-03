@@ -63,6 +63,7 @@ module.exports = {
     'jest/no-identical-title': 'error',
     'jest/prefer-to-have-length': 'warn',
     'jest/valid-expect': 'error',
+    'import/prefer-default-export': 0,
     'no-console': [2, { allow: ['warn', 'error'] }],
     'no-var': 'error',
     semi: 'error',
