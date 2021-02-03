@@ -8,7 +8,7 @@ type TodoItemProps = {
 const TodoItem: React.FC<TodoItemProps> = (props) => {
   const { todo } = props;
   return (
-    <div>
+    <div className="item_todo">
       <h1>{todo.nm}</h1>
     </div>
   );

@@ -6,6 +6,7 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'airbnb',
+    'plugin:jest/recommended'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -19,6 +20,7 @@ module.exports = {
     'react',
     '@typescript-eslint',
     'sort-destructure-keys',
+    'jest',
   ],
   settings: {
     'import/resolver': {
@@ -56,6 +58,11 @@ module.exports = {
     '@typescript-eslint/ban-ts-ignore': 0,
     '@typescript-eslint/ban-ts-comment': 0,
     '@typescript-eslint/explicit-module-boundary-types': 0,
+    'jest/no-disabled-tests': 'warn',
+    'jest/no-focused-tests': 'error',
+    'jest/no-identical-title': 'error',
+    'jest/prefer-to-have-length': 'warn',
+    'jest/valid-expect': 'error',
     'no-console': [2, { allow: ['warn', 'error'] }],
     'no-var': 'error',
     semi: 'error',
