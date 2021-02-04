@@ -9,16 +9,12 @@
       "noImplicitAny": false,
       "baseUrl": ".",
       "paths": {
-          "@home":["src/*"]
+          "*": ["**/*.d.ts"]
       },
       "outDir": "./dist"
   },
-  "filesGlob": [
-      "./src/**/*.ts"
-  ],
   "exclude": [
-      "admin",
-      "client",
+      "logs",
       "node_modules",
   ]
 }
