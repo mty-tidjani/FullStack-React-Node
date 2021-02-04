@@ -8,7 +8,8 @@ export interface INoteBook extends Document {
 const NoteBookSchema:Schema<INoteBook> = new Schema({
   crtBy /* CREATED_BY */: { type: Types.ObjectId, ref: MODEL.USER},
   scd /* STATUS_CODE */: { type: String },
-  nm /* NAME */: { type: String },
+  ttle /* Title */: { type: String },
+  lstUpdt /* Last Update */: { type: String },
   cntr /* COUNTER */: {
     todo: { type: Number, default: 0 },
     mber: { type: Number, default: 0 },

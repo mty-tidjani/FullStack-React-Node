@@ -1,9 +1,9 @@
-import React from 'react';
-import { Todo } from '../../types/models';
+import React from "react";
+import { Todo } from "../../types/model";
 
 type TodoItemProps = {
-    todo: Todo
-}
+  todo: Todo;
+};
 
 const TodoItem: React.FC<TodoItemProps> = (props) => {
   const { todo } = props;
