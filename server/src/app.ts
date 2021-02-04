@@ -1,10 +1,12 @@
 import * as http from 'http';
 import * as express from 'express';
+import config from './V1/core/config';
+import logger from './V1/core/logger';
 
 const app = express();
 
 const server = http.createServer(app);
 
-server.listen(4000, () => {
-  console.log(`Server Listening at ${4000}`);
+server.listen(config.appPort, () => {
+  logger.info(`Server Listening at ${config.appPort}`);
 });
