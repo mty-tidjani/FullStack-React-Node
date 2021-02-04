@@ -2354,8 +2354,9 @@ table.dataTable thead td {
     transition: all 0.3s ease 0s;
 }
 
-.form-gp:focus-within label {
+.form-gp:focus-within label, .form-gp.focused label {
     top: -15px;
+    font-size: 12px;
     color: #7e74ff;
 }
 
