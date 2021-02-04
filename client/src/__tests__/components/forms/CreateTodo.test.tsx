@@ -3,7 +3,6 @@ import {
   shallow, ShallowWrapper,
 } from 'enzyme';
 import CreateTodo from '../../../components/forms/CreateTodo';
-import { Todo } from '../../../types/models';
 
 describe('CreateTodo', () => {
   let wrapper: ShallowWrapper<any>;
