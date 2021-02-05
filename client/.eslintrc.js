@@ -53,7 +53,6 @@ module.exports = {
     '@typescript-eslint/prefer-optional-chain': 'error',
     '@typescript-eslint/member-ordering': 'error',
     '@typescript-eslint/no-unused-vars': [2, { argsIgnorePattern: '^_' }],
-    '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
     '@typescript-eslint/ban-ts-ignore': 0,
     '@typescript-eslint/ban-ts-comment': 0,
     '@typescript-eslint/explicit-module-boundary-types': 0,

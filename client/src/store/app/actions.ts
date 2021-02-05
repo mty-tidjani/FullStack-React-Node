@@ -1,11 +1,11 @@
 import { AxiosResponse } from 'axios';
-import { VoidActionFn } from '../../types/function';
 import * as aat from './actionTypes';
 import StorageManager from '../../utils/storage.manager';
 import { httpClient } from '../../utils/http-client';
 import { ReduxAction } from '../../types/redux';
+import { User } from '../../types/model';
 
-export const getUserASession: VoidActionFn = (): ReduxAction => ({
+export const getUserSession = (): ReduxAction => ({
   type: aat.SESSION_UPDATE,
   async payload(): Promise<any> {
     try {
@@ -19,3 +19,16 @@ export const getUserASession: VoidActionFn = (): ReduxAction => ({
     }
   },
 });
+
+export const saveSessionData = (data: {
+  user: User;
+  token: string;
+}): ReduxAction => {
+  StorageManager.setUserData(data.user);
+  StorageManager.setUserToken(data.token);
+
+  return {
+    type: aat.SESSION_UPDATE,
+    payload: data.user,
+  };
+};

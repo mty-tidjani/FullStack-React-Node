@@ -1,9 +1,11 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
+import withSession, { WithSessionProps } from '../../../Hocs/with.session';
 import { AUTH_SIGNUP } from '../../../utils/end.points';
 import { emit, OPEN_LOGIN_MODAL } from '../../../utils/event.manager';
 import { isEmail } from '../../../utils/helpers';
 import { httpClient } from '../../../utils/http-client';
+import AuthInput from '../../common/AuthInput';
 import Lnk from '../../common/Lnk';
 
 type TState = {
@@ -16,11 +18,12 @@ type TState = {
 type TErrors = {
   name?: boolean;
   email?: boolean;
+  email2?: string;
   pass?: boolean;
   pass2?: boolean;
 };
 
-const RegisterForm: React.FC = () => {
+const RegisterForm: React.FC<WithSessionProps> = ({ saveUser }) => {
   const [errors, setErrors] = useState<TErrors>({});
   const [state, setState] = useState<TState>({
     name: '',
@@ -34,14 +37,20 @@ const RegisterForm: React.FC = () => {
 
     if (Object.keys(errors).length > 0) return;
     const { email, name, pass } = state;
+
     httpClient
       .post(AUTH_SIGNUP, { userName: name, email, password: pass })
       .then((res) => {
         const { data } = res;
         if (data.success) {
-          // Todo
+          saveUser(res.data.result);
+          setTimeout(() => {
+            window.location.reload();
+          }, 200);
         } else if (data.success === false) {
-          // check data.statusCode for possibilities
+          if (data.statusCode === 10) errors.email2 = 'Invalid email!';
+          else if (data.statusCode === 11) errors.email2 = 'Email taken!';
+          setErrors({ ...errors });
         }
       })
       .catch((err) => {
@@ -59,9 +68,8 @@ const RegisterForm: React.FC = () => {
       </div>
       <div className="login-form-body">
         <div className="form-gp">
-          <label htmlFor="exampleInputName1">Full Name</label>
-          <input
-            id="exampleInputName1"
+          <AuthInput
+            label="Full Name"
             type="text"
             value={name}
             onChange={(e) => {
@@ -78,15 +86,15 @@ const RegisterForm: React.FC = () => {
           )}
         </div>
         <div className="form-gp">
-          <label htmlFor="exampleInputEmail1">Email address</label>
-          <input
-            id="exampleInputEmail1"
+          <AuthInput
+            label="Email address"
             type="email"
             value={email}
             onChange={(e) => {
               const { value } = e.target;
               if (!value.trim() || !isEmail(value)) errors.email = true;
               else delete errors.email;
+              if (errors.email2) delete errors.email2;
               setErrors(errors);
               setState({ ...state, email: value });
             }}
@@ -95,11 +103,11 @@ const RegisterForm: React.FC = () => {
           {errors.email && (
             <div className="text-danger">Please type a valid email</div>
           )}
+          {errors.email2 && <div className="text-danger">{errors.email2}</div>}
         </div>
         <div className="form-gp">
-          <label htmlFor="exampleInputPassword1">Password</label>
-          <input
-            id="exampleInputPassword1"
+          <AuthInput
+            label="Password"
             type="password"
             value={pass}
             onChange={(e) => {
@@ -116,9 +124,8 @@ const RegisterForm: React.FC = () => {
           )}
         </div>
         <div className="form-gp">
-          <label htmlFor="exampleInputPassword2">Confirm Password</label>
-          <input
-            id="exampleInputPassword2"
+          <AuthInput
+            label="Confirm Password"
             type="password"
             value={pass2}
             onChange={(e) => {
@@ -151,4 +158,4 @@ const RegisterForm: React.FC = () => {
   );
 };
 
-export default RegisterForm;
+export default withSession(RegisterForm);

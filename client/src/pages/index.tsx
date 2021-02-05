@@ -33,6 +33,8 @@ const App: React.FC = () => (
     <Switch>
       <AuthRoute component={Auth} path="/" />
       <PrivateRoute component={Home} path="/home" />
+      <PrivateRoute component={Home} path="/notebook" />
+      <PrivateRoute component={Home} path="/notebook/:bookId" />
     </Switch>
   </BrowserRouter>
 );

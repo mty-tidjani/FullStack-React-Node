@@ -39,7 +39,11 @@ export default class StorageManager {
    */
   static logoutUser(): void {
     // Todo clear storag
-    window.location.reload();
+    localStorage.removeItem(USER_DATA_KEY);
+    StorageManager.setUserToken('');
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
   }
 
   /**
