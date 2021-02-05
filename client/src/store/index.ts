@@ -5,17 +5,17 @@ import {
   Store,
   combineReducers,
   Reducer,
-} from "redux";
-import promise from "redux-promise-middleware";
-import thunk from "redux-thunk";
+} from 'redux';
+import promise from 'redux-promise-middleware';
+import thunk from 'redux-thunk';
 // @ts-ignore
-import dynamicMiddlewares from "redux-dynamic-middlewares";
+import dynamicMiddlewares from 'redux-dynamic-middlewares';
 
 // Reducer(s)
-import AppReducer from "./app/reducer";
+import AppReducer from './app/reducer';
 // Types
-import { ReduxAction, RootState } from "../types/redux";
-import { ConfigureStoreFn } from "../types/function";
+import { ReduxAction, RootState } from '../types/redux';
+import { ConfigureStoreFn } from '../types/function';
 
 declare let window: any;
 
@@ -33,7 +33,7 @@ export const configureStore: ConfigureStoreFn = (
 ): Store<RootState, ReduxAction> => {
   let composeEnhancers: any;
 
-  if (process.env.NODE_ENV !== "production") {
+  if (process.env.NODE_ENV !== 'production') {
     composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   } else {
     composeEnhancers = compose;

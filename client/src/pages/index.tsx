@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  Switch, BrowserRouter, Route, Redirect,
-} from 'react-router-dom';
+import { Switch, BrowserRouter, Route, Redirect } from 'react-router-dom';
 import StorageManager from '../utils/storage.manager';
 import Auth from './Auth';
 import Home from './Home';
@@ -13,14 +11,20 @@ const isLogged = StorageManager.getUserData();
 const PrivateRoute = ({ component: Component, ...rest }: any) => (
   <Route
     {...rest}
-    render={(props) => (isLogged ? <Component {...props} /> : <Redirect to="/" />)}
+    render={(props) => {
+      if (isLogged) return <Component {...props} />;
+      return <Redirect to="/" />;
+    }}
   />
 );
 // Routes used for authentification
 const AuthRoute = ({ component: Component, ...rest }: any) => (
   <Route
     {...rest}
-    render={(props) => (!isLogged ? <Component {...props} /> : <Redirect to="/home" />)}
+    render={(props) => {
+      if (!isLogged) return <Component {...props} />;
+      return <Redirect to="/home" />;
+    }}
   />
 );
 

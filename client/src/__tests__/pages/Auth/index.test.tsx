@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  shallow, ShallowWrapper,
-} from 'enzyme';
+import { shallow, ShallowWrapper } from 'enzyme';
 import Auth from '../../../pages/Auth';
 import AuthModal from '../../../components/modals/AuthModal';
 

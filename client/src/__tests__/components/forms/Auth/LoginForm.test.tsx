@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  shallow, ShallowWrapper,
-} from 'enzyme';
+import { shallow, ShallowWrapper } from 'enzyme';
 import LoginForm from '../../../../components/forms/Auth/LoginForm';
 
 describe('Render LoginForm', () => {

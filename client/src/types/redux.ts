@@ -1,5 +1,5 @@
-import { Action } from "redux";
-import { User } from "./model";
+import { Action } from 'redux';
+import { User } from './model';
 
 export type ReduxAction = {
   type: string;

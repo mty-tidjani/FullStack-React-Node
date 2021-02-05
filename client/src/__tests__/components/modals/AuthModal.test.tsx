@@ -8,7 +8,11 @@ describe('AuthModal', () => {
   let wrapper: ShallowWrapper<any>;
 
   beforeEach(() => {
-    wrapper = shallow(<MemoryRouter initialEntries={['/abc?']}><AuthModal /></MemoryRouter>);
+    wrapper = shallow(
+      <MemoryRouter initialEntries={['/abc?']}>
+        <AuthModal />
+      </MemoryRouter>
+    );
   });
 
   it('should check if AuthModal is rendering BaseModal', () => {

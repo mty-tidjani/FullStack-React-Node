@@ -3,14 +3,14 @@ import axios, {
   AxiosInstance,
   AxiosRequestConfig,
   AxiosResponse,
-} from "axios";
-import StorageManager from "./storage.manager";
+} from 'axios';
+import StorageManager from './storage.manager';
 
 const instance: AxiosInstance = axios.create({
   baseURL: process.env.REACT_APP_API_BASE_URL,
 });
 
-instance.defaults.headers.post["Content-Type"] = "application/json";
+instance.defaults.headers.post['Content-Type'] = 'application/json';
 
 instance.interceptors.request.use(
   (request: AxiosRequestConfig): AxiosRequestConfig => {
@@ -32,7 +32,7 @@ instance.interceptors.response.use(
 
     if (response.data.statusCode === 414) {
       // Code sent back when user has not activated
-      console.warn("Your account is not activated!");
+      console.warn('Your account is not activated!');
     }
 
     return response;

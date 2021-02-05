@@ -1,18 +1,32 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState } from "react";
-import { AUTH_SIGNUP } from "../../../utils/end.points";
-import { emit, OPEN_LOGIN_MODAL } from "../../../utils/event.manager";
-import { isEmail } from "../../../utils/helpers";
-import { httpClient } from "../../../utils/http-client";
-import Lnk from "../../common/Lnk";
+import React, { useState } from 'react';
+import { AUTH_SIGNUP } from '../../../utils/end.points';
+import { emit, OPEN_LOGIN_MODAL } from '../../../utils/event.manager';
+import { isEmail } from '../../../utils/helpers';
+import { httpClient } from '../../../utils/http-client';
+import Lnk from '../../common/Lnk';
+
+type TState = {
+  name: string;
+  email: string;
+  pass: string;
+  pass2: string;
+};
+
+type TErrors = {
+  name?: boolean;
+  email?: boolean;
+  pass?: boolean;
+  pass2?: boolean;
+};
 
 const RegisterForm: React.FC = () => {
-  const [errors, setErrors] = useState<any>({});
-  const [state, setState] = useState<any>({
-    name: "",
-    email: "",
-    pass: "",
-    pass2: "",
+  const [errors, setErrors] = useState<TErrors>({});
+  const [state, setState] = useState<TState>({
+    name: '',
+    email: '',
+    pass: '',
+    pass2: '',
   });
 
   const submit = (e: React.FormEvent<HTMLFormElement>): void => {

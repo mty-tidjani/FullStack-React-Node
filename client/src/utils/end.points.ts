@@ -1,4 +1,4 @@
-const base = "/api/v1";
+const base = '/api/v1';
 
 export const USERS = `${base}/users`;
 export const USERS_ME = `${USERS}/me`;

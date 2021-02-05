@@ -1,5 +1,5 @@
-import { User } from "../types/model";
-import { USER_COOKIE_KEY, USER_DATA_KEY } from "./constants";
+import { User } from '../types/model';
+import { USER_COOKIE_KEY, USER_DATA_KEY } from './constants';
 
 export default class StorageManager {
   /**
@@ -93,12 +93,12 @@ export default class StorageManager {
    */
   public static getCookie(cookieName: string): string | null {
     const name: string = `${cookieName}=`;
-    const ca: string[] = document.cookie.split(";");
+    const ca: string[] = document.cookie.split(';');
 
     for (let i: number = 0; i < ca.length; i += 1) {
       let c: string = ca[i];
 
-      while (c.charAt(0) === " ") {
+      while (c.charAt(0) === ' ') {
         c = c.substring(1);
       }
       if (c.indexOf(name) === 0) {

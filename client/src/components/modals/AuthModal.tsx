@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { listen, OPEN_LOGIN_MODAL, stopListen } from '../../utils/event.manager';
+import {
+  listen,
+  OPEN_LOGIN_MODAL,
+  stopListen,
+} from '../../utils/event.manager';
 import { useQueryString } from '../../utils/useQueryString';
 import LoginForm from '../forms/Auth/LoginForm';
 import PassResetForm from '../forms/Auth/PassResetForm';
@@ -7,7 +11,7 @@ import BaseModal from './BaseModal';
 
 const AuthModal: React.FC = () => {
   const [show, setShow] = useState(false);
-  const [section, setSection] = useState<'login'|'reset'>('login');
+  const [section, setSection] = useState<'login' | 'reset'>('login');
   const { token } = useQueryString();
 
   useEffect(() => {
@@ -26,12 +30,12 @@ const AuthModal: React.FC = () => {
     };
   }, [token]);
   return (
-    <BaseModal
-      isOpen={show}
-      centered
-      onClosed={() => setShow(false)}
-    >
-      {section === 'login' ? <LoginForm resetPass={() => setSection('reset')} /> : <PassResetForm login={() => setSection('login')} token={token} />}
+    <BaseModal isOpen={show} centered onClosed={() => setShow(false)}>
+      {section === 'login' ? (
+        <LoginForm resetPass={() => setSection('reset')} />
+      ) : (
+        <PassResetForm login={() => setSection('login')} token={token} />
+      )}
     </BaseModal>
   );
 };

@@ -1,5 +1,5 @@
-import { Store } from "redux";
-import { ReduxAction, RootState } from "./redux";
+import { Store } from 'redux';
+import { ReduxAction, RootState } from './redux';
 
 export type ConfigureStoreFn = (
   initialState?: RootState

@@ -1,8 +1,11 @@
 import React from 'react';
 
-const Lnk: React.FC<React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>> = ({
-  children, onClick, ...props
-}) => (
+const Lnk: React.FC<
+  React.DetailedHTMLProps<
+    React.AnchorHTMLAttributes<HTMLAnchorElement>,
+    HTMLAnchorElement
+  >
+> = ({ children, onClick, ...props }) => (
   <a
     href="?"
     onClick={(e) => {

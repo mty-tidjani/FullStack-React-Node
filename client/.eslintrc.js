@@ -7,6 +7,7 @@ module.exports = {
     'plugin:react/recommended',
     'airbnb',
     'plugin:jest/recommended',
+    'plugin:prettier/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -16,12 +17,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: [
-    'react',
-    '@typescript-eslint',
-    'sort-destructure-keys',
-    'jest',
-  ],
+  plugins: ['react', '@typescript-eslint', 'sort-destructure-keys', 'jest'],
   settings: {
     'import/resolver': {
       typescript: {},
@@ -35,7 +31,10 @@ module.exports = {
     'react/destructuring-assignment': 'error',
     'react/boolean-prop-naming': 'error',
     'react/jsx-props-no-spreading': 0,
-    'react/jsx-sort-props': [1, { ignoreCase: false, callbacksLast: true, shorthandLast: true }],
+    'react/jsx-sort-props': [
+      1,
+      { ignoreCase: false, callbacksLast: true, shorthandLast: true },
+    ],
     'react/jsx-curly-brace-presence': [
       'error',
       {

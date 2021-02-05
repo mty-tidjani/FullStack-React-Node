@@ -1,13 +1,13 @@
 /* eslint-disable no-param-reassign */
-import { Reducer } from "redux";
-import producer from "immer";
+import { Reducer } from 'redux';
+import producer from 'immer';
 
-import * as aat from "./actionTypes";
+import * as aat from './actionTypes';
 
-import { ReduxAction, AppState } from "../../types/redux";
-import { User } from "../../types/model";
+import { ReduxAction, AppState } from '../../types/redux';
+import { User } from '../../types/model';
 
-import LocalStorageManager from "../../utils/storage.manager";
+import LocalStorageManager from '../../utils/storage.manager';
 
 const initialState: AppState = {
   sesUser: LocalStorageManager.getUserData(),

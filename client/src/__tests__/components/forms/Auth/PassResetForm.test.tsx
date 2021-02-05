@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  shallow, ShallowWrapper,
-} from 'enzyme';
+import { shallow, ShallowWrapper } from 'enzyme';
 import PassResetForm from '../../../../components/forms/Auth/PassResetForm';
 
 describe('Render PassResetForm', () => {

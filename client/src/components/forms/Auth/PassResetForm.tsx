@@ -3,14 +3,14 @@ import React, { useEffect } from 'react';
 import Lnk from '../../common/Lnk';
 
 type PassResetFormProps = {
-  token: string|undefined
-  login: () => void
-}
+  token: string | undefined;
+  login: () => void;
+};
 
-const PassResetForm:React.FC<PassResetFormProps> = ({ login, token }) => {
+const PassResetForm: React.FC<PassResetFormProps> = ({ login, token }) => {
   useEffect(() => {
     if (token) {
-    // Todo request the backend to verify token
+      // Todo request the backend to verify token
     }
   }, [token]);
   return (
@@ -18,12 +18,14 @@ const PassResetForm:React.FC<PassResetFormProps> = ({ login, token }) => {
       <form>
         <div className="login-form-head">
           <h4>Password Reset</h4>
-          <p>Forgot your password? Don&#39;t worry it happen to the best of us.</p>
+          <p>
+            Forgot your password? Don&#39;t worry it happen to the best of us.
+          </p>
         </div>
         <div className="login-form-body">
           <div className="form-gp">
-            <label htmlFor="exampleInputEmail1">Email address</label>
-            <input id="exampleInputEmail1" type="email" />
+            <label htmlFor="sjskds">Email address</label>
+            <input id="sjskds" type="email" />
             <i className="ti-email" />
             <div className="text-danger">e</div>
           </div>

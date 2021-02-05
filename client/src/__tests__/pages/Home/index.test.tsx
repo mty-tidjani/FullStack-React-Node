@@ -1,8 +1,6 @@
 import React from 'react';
 // import { render, screen } from '@testing-library/react';
-import {
-  shallow, ShallowWrapper,
-} from 'enzyme';
+import { shallow, ShallowWrapper } from 'enzyme';
 import Home from '../../../pages/Home';
 
 describe('Render home', () => {
