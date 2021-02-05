@@ -1,20 +1,14 @@
 {
-  "compilerOptions": {
-      "target": "ES6",
-      "module": "commonjs",
-      "removeComments": true,
-      "emitDecoratorMetadata": true,
-      "experimentalDecorators": true,
-      "sourceMap": true,
-      "noImplicitAny": false,
-      "baseUrl": ".",
-      "paths": {
-          "*": ["**/*.d.ts"]
-      },
-      "outDir": "./dist"
-  },
-  "exclude": [
-      "logs",
-      "node_modules",
-  ]
-}
+    "compilerOptions": {
+      "target": "es5",                          
+      "module": "commonjs",                    
+      "lib": ["es6"],                     
+      "allowJs": true,
+      "outDir": "build",                          
+      "rootDir": "src",
+      "strict": false,         
+      "noImplicitAny": true,
+      "esModuleInterop": true,
+      "resolveJsonModule": true
+    }
+  }

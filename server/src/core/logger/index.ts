@@ -9,7 +9,7 @@ import { join } from 'path';
 import { format, createLogger, transports } from 'winston';
 import config from '../config';
 
-import * as Wdrf from 'winston-daily-rotate-file';
+import Wdrf from 'winston-daily-rotate-file';
 
 //extending the global's interface for new variables
 declare global {
@@ -36,7 +36,7 @@ const rotativeTransport = new (Wdrf)({
   maxFiles: '14d',
 });
 
-const log = (...args) => {
+const log = (...args: any[]) => {
   // eslint-disable-next-line no-console
   console.log(...args);
 };
