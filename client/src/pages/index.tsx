@@ -1,9 +1,18 @@
 import React from 'react';
-import { Switch, BrowserRouter, Route, Redirect } from 'react-router-dom';
+import {
+  Switch,
+  BrowserRouter,
+  Route,
+  Redirect,
+  useLocation,
+} from 'react-router-dom';
+import Layout from '../components/Layout';
 import StorageManager from '../utils/storage.manager';
 import Auth from './Auth';
 import Home from './Home';
-import './index.scss';
+import NoteBookModal from './NoteBook/Modal';
+import NoteBookPage from './NoteBook/Page';
+import NoteBooks from './NoteBooks';
 
 const isLogged = StorageManager.getUserData();
 
@@ -27,15 +36,39 @@ const AuthRoute = ({ component: Component, ...rest }: any) => (
     }}
   />
 );
+/**
+ * @description Contains all routes of the app.
+ * @name Routes
+ */
+const Routes: React.FC = () => {
+  const location: any = useLocation();
 
+  const background = location.state?.background;
+
+  return (
+    <>
+      <Switch location={background || location}>
+        <AuthRoute component={Auth} path="/" exact />
+        <Layout>
+          <PrivateRoute component={Home} path="/home" />
+          <PrivateRoute component={NoteBooks} path="/notebook" exact />
+          <PrivateRoute component={NoteBookPage} path="/notebook/:bookId" />
+        </Layout>
+      </Switch>
+
+      {background && (
+        <Switch>
+          <Route component={NoteBookModal} path="/notebook/:bookId" />
+        </Switch>
+      )}
+    </>
+  );
+};
+
+// App component
 const App: React.FC = () => (
   <BrowserRouter>
-    <Switch>
-      <AuthRoute component={Auth} path="/" />
-      <PrivateRoute component={Home} path="/home" />
-      <PrivateRoute component={Home} path="/notebook" />
-      <PrivateRoute component={Home} path="/notebook/:bookId" />
-    </Switch>
+    <Routes />
   </BrowserRouter>
 );
 

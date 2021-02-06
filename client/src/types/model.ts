@@ -1,6 +1,9 @@
 export type NoteBook = {};
 
-export type User = {};
+export type User = {
+  _id: string;
+  usrNM: string;
+};
 
 export type Todo = {
   _id: string;

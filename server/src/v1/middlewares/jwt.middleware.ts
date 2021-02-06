@@ -6,7 +6,7 @@ import { sendResp, handleError } from "../util";
 import { jwtTokenDecoder } from "../util/jwt.utils";
 
 export const jwtAuthVerify = async (req: RichRequest, res: Response, next: NextFunction): Promise<unknown> => {
-  try {
+  try {    
     const token = req.headers['authorization'];
     if (!token || !token.startsWith('Bearer ')) return sendResp(res, ERROR.JWT_TOKEN_INVALID, {});
 
@@ -14,7 +14,7 @@ export const jwtAuthVerify = async (req: RichRequest, res: Response, next: NextF
     if (tokenValue.trim()) {
       const data = jwtTokenDecoder(tokenValue);
       if (data.success) {
-        const user = await User.findOne({ _id: data.tokenData.tsId });
+        const user = await User.findOne({ _id: data.tokenData.uid });
         if (user) {
           req.userId = String(user._id);
           return next();

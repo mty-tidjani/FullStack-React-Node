@@ -3,7 +3,7 @@ import config from '../../core/config';
 
 export const jwtTokenGenerator = async (data: string|Record<string, unknown>|Buffer): Promise<string> => {
   const tokenData = data || {};
-  const token = await jwt.sign(tokenData, config.jwt, {
+  const token = jwt.sign(tokenData, config.jwt, {
     algorithm: 'HS256', expiresIn:  5 * 24 * 60
   });
   return token;

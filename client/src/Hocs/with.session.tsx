@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { RootState } from '../types/redux';
 import { User } from '../types/model';
-import { saveSessionData } from '../store/app/actions';
+import { getUserSession, saveSessionData } from '../store/app/actions';
 
 export type WithSessionProps = {
   sesUser: User;
   saveUser: (data: any) => void;
+  getSession: () => void;
 };
 
 export default <P extends WithSessionProps>(
@@ -34,6 +35,7 @@ export default <P extends WithSessionProps>(
 
   const mapDispatchToProps = (dispatch: any) => ({
     saveUser: (data: any) => dispatch(saveSessionData(data)),
+    getSession: () => dispatch(getUserSession()),
   });
 
   return connect(mapStateToProps, mapDispatchToProps)(WithSessionHoc_);

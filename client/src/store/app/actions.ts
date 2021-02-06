@@ -4,12 +4,13 @@ import StorageManager from '../../utils/storage.manager';
 import { httpClient } from '../../utils/http-client';
 import { ReduxAction } from '../../types/redux';
 import { User } from '../../types/model';
+import { USERS_ME } from '../../utils/end.points';
 
 export const getUserSession = (): ReduxAction => ({
   type: aat.SESSION_UPDATE,
   async payload(): Promise<any> {
     try {
-      const res: AxiosResponse = await httpClient.get('users/me');
+      const res: AxiosResponse = await httpClient.get(USERS_ME);
       StorageManager.setUserData(res.data.result.user);
       StorageManager.setUserToken(res.data.result.token);
 

@@ -26,9 +26,7 @@ export class AuthController {
       // await user.save();
       const rtn = { user: { _id: user._id, usrNM: user.usrNM }, token: ''};
       rtn.token = await jwtTokenGenerator({
-        tokenData: {
-          uid: user._id,
-        },
+        uid: user._id,
       });
       return sendResp(res, SUCCESS.ACCOUNT_CREATED, rtn);
       // return sendResp(res, SUCCESS.ACCOUNT_CREATED);
@@ -50,9 +48,7 @@ export class AuthController {
 
       const rtn = { user: { _id: user._id, usrNM: user.usrNM }, token: ''};
       rtn.token = await jwtTokenGenerator({
-        tokenData: {
-          uid: user._id,
-        },
+        uid: user._id,
       });
 
       return sendResp(res, SUCCESS.DEFAULT, rtn);
