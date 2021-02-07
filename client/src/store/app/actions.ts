@@ -4,7 +4,7 @@ import StorageManager from '../../utils/storage.manager';
 import { httpClient } from '../../utils/http-client';
 import { ReduxAction } from '../../types/redux';
 import { User } from '../../types/model';
-import { USERS_ME } from '../../utils/end.points';
+import { NOTE, USERS_ME } from '../../utils/end.points';
 
 export const getUserSession = (): ReduxAction => ({
   type: aat.SESSION_UPDATE,
@@ -33,3 +33,38 @@ export const saveSessionData = (data: {
     payload: data.user,
   };
 };
+
+type addNote = {
+  title: string;
+  desc: string;
+};
+export const addNoteQry = (data: addNote): ReduxAction => ({
+  type: aat.ADD_NOTE,
+  async payload(): Promise<any> {
+    try {
+      const res: AxiosResponse = await httpClient.post(NOTE, data);
+      const { data: rtn } = res;
+      if (rtn.success) return rtn.result;
+      return Promise.reject(rtn.message);
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  },
+});
+
+export const resetLoaders = (): ReduxAction => ({
+  type: aat.RESET_LOADX,
+  payload: undefined,
+});
+
+export const loadNoteBooksQry = (): ReduxAction => ({
+  type: aat.LOAD_NOTEBOOKS,
+  async payload(): Promise<any> {
+    try {
+      const res: AxiosResponse = await httpClient.get(NOTE);
+      return res.data.result;
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  },
+});

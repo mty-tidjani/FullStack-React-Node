@@ -3,7 +3,7 @@ export const todoSCD = {
 };
 
 export const noteBookSCD = {
-  available: 0, deleted: '9',
+  available: '0', deleted: '9',
 };
 
 export const userSCD = {

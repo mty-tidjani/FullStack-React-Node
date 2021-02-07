@@ -61,6 +61,7 @@ module.exports = {
     'jest/no-identical-title': 'error',
     'jest/prefer-to-have-length': 'warn',
     'jest/valid-expect': 'error',
+    'jsx-a11y/label-has-associated-control': 0,
     'import/prefer-default-export': 0,
     'no-console': [2, { allow: ['warn', 'error'] }],
     'no-var': 'error',
@@ -81,5 +82,6 @@ module.exports = {
     'no-nested-ternary': 'error',
     'no-else-return': 'error',
     'no-eval': 'error',
+    'no-underscore-dangle': 0,
   },
 };

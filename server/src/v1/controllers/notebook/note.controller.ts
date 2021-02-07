@@ -1,35 +1,60 @@
 import { Request, Response } from "express";
+import { noteBookSCD, SUCCESS } from "../../constant";
+import { NoteBook } from "../../models/notebook/notebook.model";
+import { RichRequest } from "../../types/common";
+import { handleError, sendResp } from "../../util";
 
 export class NoteBookController {
-  public static create = (req: Request, res: Response): unknown => {
+  public static create = async (req: RichRequest, res: Response): Promise<unknown> => {
+    const { title, desc } = req.body;
+    const { userId } = req;
+    try {
+      const nbk = await NoteBook.create({
+        crtBy /* CREATED_BY */: userId,
+        scd /* STATUS_CODE */: noteBookSCD.available,
+        ttle /* Title */: title,
+        desc /* Description */,
+        lstUpdt /* Last Update */: Date.now(),
+      });
+
+      return sendResp(res, SUCCESS.DEFAULT, nbk);
+    } catch (err) {
+      return handleError(res, err);
+    }
+  }
+
+  public static update = async (req: Request, res: Response): Promise<unknown> => {
     return res.json({ success: true });
   }
 
-  public static update = (req: Request, res: Response): unknown => {
+  public static delete = async (req: Request, res: Response): Promise<unknown> => {
     return res.json({ success: true });
   }
 
-  public static delete = (req: Request, res: Response): unknown => {
+  public static getOne = async (req: Request, res: Response): Promise<unknown> => {
     return res.json({ success: true });
   }
 
-  public static getOne = (req: Request, res: Response): unknown => {
+  public static getMany = async (req: RichRequest, res: Response): Promise<unknown> => {
+    const { userId } = req;
+    try {
+      const nbks = await NoteBook.find({ crtBy: userId, scd: noteBookSCD.available });
+
+      return sendResp(res, SUCCESS.DEFAULT, nbks);
+    } catch (err) {
+      return handleError(res, err);
+    }
+  }
+
+  public static inviteUser = async (req: Request, res: Response): Promise<unknown> => {
     return res.json({ success: true });
   }
 
-  public static getMany = (req: Request, res: Response): unknown => {
+  public static respondInvite = async (req: Request, res: Response): Promise<unknown> => {
     return res.json({ success: true });
   }
 
-  public static inviteUser = (req: Request, res: Response): unknown => {
-    return res.json({ success: true });
-  }
-
-  public static respondInvite = (req: Request, res: Response): unknown => {
-    return res.json({ success: true });
-  }
-
-  public static leaveBook = (req: Request, res: Response): unknown => {
+  public static leaveBook = async (req: Request, res: Response): Promise<unknown> => {
     return res.json({ success: true });
   }
 

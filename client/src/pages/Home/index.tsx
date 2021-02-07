@@ -1,6 +1,8 @@
 import React from 'react';
+import NoteBookItem from '../../components/items/NoteBookItem';
+import withSession, { WithSessionProps } from '../../Hocs/with.session';
 
-const Home: React.FC = () => {
+const Home: React.FC<WithSessionProps> = ({ notebooks }) => {
   return (
     <div className="main-content-inner" id="home_main">
       {/* <!-- accroding start --> */}
@@ -14,78 +16,12 @@ const Home: React.FC = () => {
                 className="according accordion-s2 gradiant-bg"
                 id="accordion2"
               >
-                <div className="card">
-                  <div className="card-header">
-                    <a
-                      className="card-link"
-                      data-toggle="collapse"
-                      href="#accordion21"
-                    >
-                      Collapsible Group Item #1
-                    </a>
-                  </div>
-                  <div
-                    className="collapse show"
-                    data-parent="#accordion2"
-                    id="accordion21"
-                  >
-                    <div className="card-body">
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Nemo eaque porro alias assumenda accusamus incidunt odio
-                      molestiae maxime quo atque in et quaerat, vel unde aliquam
-                      aperiam quidem consectetur omnis dicta officiis? Dolorum,
-                      error dolorem!
-                    </div>
-                  </div>
-                </div>
-                <div className="card">
-                  <div className="card-header">
-                    <a
-                      className="collapsed card-link"
-                      data-toggle="collapse"
-                      href="#accordion22"
-                    >
-                      Collapsible Group Item #2
-                    </a>
-                  </div>
-                  <div
-                    className="collapse"
-                    data-parent="#accordion2"
-                    id="accordion22"
-                  >
-                    <div className="card-body">
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Nemo eaque porro alias assumenda accusamus incidunt odio
-                      molestiae maxime quo atque in et quaerat, vel unde aliquam
-                      aperiam quidem consectetur omnis dicta officiis? Dolorum,
-                      error dolorem!
-                    </div>
-                  </div>
-                </div>
-                <div className="card">
-                  <div className="card-header">
-                    <a
-                      className="collapsed card-link"
-                      data-toggle="collapse"
-                      href="#accordion23"
-                    >
-                      Collapsible Group Item #3
-                    </a>
-                  </div>
-                  <div
-                    className="collapse"
-                    data-parent="#accordion2"
-                    id="accordion23"
-                  >
-                    <div className="card-body">
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Nemo eaque porro alias assumenda accusamus incidunt odio
-                      molestiae maxime quo atque in et quaerat, vel unde aliquam
-                      aperiam quidem consectetur omnis dicta officiis? Dolorum,
-                      error dolorem!
-                    </div>
-                  </div>
-                </div>
+                {notebooks.length === 0 && (
+                  <h2 className="text-center"> No notebooks yet!</h2>
+                )}
+                {notebooks.map((note) => (
+                  <NoteBookItem key={note._id} note={note} />
+                ))}
               </div>
             </div>
           </div>
@@ -100,7 +36,7 @@ const Home: React.FC = () => {
                 <div className="card">
                   <div className="card-header">
                     <a
-                      className="card-link"
+                      className="collapsed card-link"
                       data-toggle="collapse"
                       href="#accordion51"
                     >
@@ -108,7 +44,7 @@ const Home: React.FC = () => {
                     </a>
                   </div>
                   <div
-                    className="collapse show"
+                    className="collapse"
                     data-parent="#accordion5"
                     id="accordion51"
                   >
@@ -180,4 +116,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default withSession(Home);

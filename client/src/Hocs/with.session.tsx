@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { RootState } from '../types/redux';
-import { User } from '../types/model';
-import { getUserSession, saveSessionData } from '../store/app/actions';
+import { AppState, RootState } from '../types/redux';
+import {
+  addNoteQry,
+  getUserSession,
+  resetLoaders,
+  saveSessionData,
+  loadNoteBooksQry,
+} from '../store/app/actions';
 
-export type WithSessionProps = {
-  sesUser: User;
+export type WithSessionProps = AppState & {
   saveUser: (data: any) => void;
   getSession: () => void;
+  addNote: (title: string, desc: string) => void;
+  resetLoaders: () => void;
+  loadNoteBooks: () => void;
 };
 
 export default <P extends WithSessionProps>(
@@ -30,12 +37,16 @@ export default <P extends WithSessionProps>(
   }
 
   const mapStateToProps = ({ app }: RootState) => ({
-    sesUser: app.sesUser,
+    ...app,
   });
 
   const mapDispatchToProps = (dispatch: any) => ({
     saveUser: (data: any) => dispatch(saveSessionData(data)),
     getSession: () => dispatch(getUserSession()),
+    addNote: (title: string, desc: string) =>
+      dispatch(addNoteQry({ title, desc })),
+    resetLoaders: () => dispatch(resetLoaders()),
+    loadNoteBooks: () => dispatch(loadNoteBooksQry()),
   });
 
   return connect(mapStateToProps, mapDispatchToProps)(WithSessionHoc_);

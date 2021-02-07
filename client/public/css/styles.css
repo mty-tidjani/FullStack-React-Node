@@ -208,7 +208,7 @@
 }
 
 .metismenu >li:hover>a,
-.metismenu >li.active>a {
+.metismenu > li a.active {
     color: #fff;
     background: #343942;
 }
@@ -219,7 +219,7 @@
 }
 
 .metismenu li:hover>a i,
-.metismenu li.active>a i {
+.metismenu li> a.active i {
     color: #fff;
 }
 
@@ -400,6 +400,10 @@
     padding: 15px 30px;
     background: #fff;
     border-bottom: 1px solid #d8e3e7;
+}
+
+.header-area > div > div{
+    z-index: 2;
 }
 
 .nav-btn {
@@ -788,6 +792,7 @@ ul.breadcrumbs {
     visibility: visible;
     opacity: 1;
     box-shadow: 0 0 45px 0 rgba(131, 23, 254, 0.2);
+    z-index: 1;
 }
 
 .user-profile .dropdown-menu a {

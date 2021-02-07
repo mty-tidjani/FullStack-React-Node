@@ -3,7 +3,7 @@ import { NoteBookController } from '../../../v1/controllers';
 import { BaseRoute } from '../../base.routes';
 import { Router } from 'express';
 import { jwtAuthVerify } from '../../../v1/middlewares/jwt.middleware';
-
+import * as mdwr from './notebook.mdwr';
 
 export class NoteBookRoutes extends BaseRoute {
   public static path = '/notebook';
@@ -31,7 +31,7 @@ export class NoteBookRoutes extends BaseRoute {
 
     //CRUD Operations
 
-    this.router.post('/', jwtAuthVerify, NoteBookController.create);
+    this.router.post('/', jwtAuthVerify, mdwr.create, NoteBookController.create);
 
     this.router.patch('/:id', jwtAuthVerify, NoteBookController.update);
 

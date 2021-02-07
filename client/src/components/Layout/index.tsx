@@ -1,14 +1,17 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import withSession, { WithSessionProps } from '../../Hocs/with.session';
+import AddNoteModal from '../modals/AddNoteModal';
 
 const Layout: React.FC<WithSessionProps> = ({
   children,
   getSession,
+  loadNoteBooks,
   sesUser,
 }) => {
   useEffect(() => {
     getSession();
+    loadNoteBooks();
   }, []);
 
   return (
@@ -157,6 +160,9 @@ const Layout: React.FC<WithSessionProps> = ({
                           NoteBooks
                         </NavLink>
                       </li>
+                      <li className="nav-item">
+                        <AddNoteModal />
+                      </li>
                     </ul>
                   </div>
                 </nav>
@@ -168,7 +174,7 @@ const Layout: React.FC<WithSessionProps> = ({
                   className="user-name dropdown-toggle"
                   data-toggle="dropdown"
                 >
-                  {sesUser.usrNM}
+                  {sesUser?.usrNM}
                   <i className="fa fa-angle-down" />
                 </h4>
                 <div className="dropdown-menu">

@@ -12,7 +12,6 @@ const BaseModal: React.FC<IBaseModal> = (props) => {
     <>
       <Modal
         {...props}
-        animation={false}
         className={`modal_base ${className}${trans ? ' transparent' : ''}`}
       >
         <button className="close modal_close" type="button" onClick={onClosed}>
