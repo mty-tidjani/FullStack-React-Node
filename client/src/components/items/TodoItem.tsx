@@ -1,6 +1,6 @@
 import React from 'react';
 import { Todo } from '../../types/model';
-import Lnk from '../common/Lnk';
+import { strRandom } from '../../utils/helpers';
 
 type TodoItemProps = {
   todo: Todo;
@@ -8,10 +8,13 @@ type TodoItemProps = {
 
 const TodoItem: React.FC<TodoItemProps> = (props) => {
   const { todo } = props;
+  const id = strRandom(5);
   return (
     <div className="card item_todo">
       <div className="card-header">
-        <Lnk className="collapsed card-link">{todo.nm}</Lnk>
+        <a className="card-link" data-toggle="collapse" href={`#${id}`}>
+          {todo.nm}
+        </a>
       </div>
       <div className="collapse show" data-parent="#accordion2" id="accordion23">
         <div className="card-body">
