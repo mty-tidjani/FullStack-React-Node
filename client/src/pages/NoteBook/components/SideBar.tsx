@@ -1,7 +1,7 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
-type NBLayoutProps = {
+type SideBarProps = {
   bookId: string;
 };
 
@@ -16,13 +16,13 @@ export const linksNB = (bookId: string) => {
   };
 };
 
-const NBLayout: React.FC<NBLayoutProps> = ({ bookId }) => {
+const SideBar: React.FC<SideBarProps> = ({ bookId }) => {
   const links = linksNB(bookId);
   return (
     <div className="sidebar-menu">
       <div className="sidebar-header">
         <div className="logo text-white">
-          <span>NOTE MENU</span>
+          <Link to="/notebook">NoteBooks</Link>
         </div>
       </div>
       <div className="main-menu">
@@ -67,4 +67,4 @@ const NBLayout: React.FC<NBLayoutProps> = ({ bookId }) => {
   );
 };
 
-export default NBLayout;
+export default SideBar;

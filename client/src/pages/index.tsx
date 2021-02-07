@@ -10,9 +10,9 @@ import Layout from '../components/Layout';
 import StorageManager from '../utils/storage.manager';
 import Auth from './Auth';
 import Home from './Home';
-import NoteBookModal from './NoteBook/Modal';
-import NoteBookPage from './NoteBook/Page';
+import NoteBookPage from './NoteBook';
 import NoteBooks from './NoteBooks';
+import TodoModal from './Todo/Modal';
 
 const isLogged = StorageManager.getUserData();
 
@@ -53,12 +53,13 @@ const Routes: React.FC = () => {
           <PrivateRoute component={Home} path="/home" />
           <PrivateRoute component={NoteBooks} path="/notebook" exact />
           <PrivateRoute component={NoteBookPage} path="/notebook/:bookId" />
+          <PrivateRoute component={NoteBookPage} path="/todo/:todoId" />
         </Layout>
       </Switch>
 
       {background && (
         <Switch>
-          <Route component={NoteBookModal} path="/notebook/:bookId" />
+          <Route component={TodoModal} path="/todo/:todoId" />
         </Switch>
       )}
     </>

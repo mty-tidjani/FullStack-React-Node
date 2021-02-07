@@ -150,6 +150,8 @@
 .logo a {
     display: inline-block;
     max-width: 120px;
+    background: #fff;
+    padding: 0px 8px;
 }
 
 .metismenu >li >a {

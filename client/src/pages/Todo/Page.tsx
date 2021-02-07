@@ -2,7 +2,7 @@ import React from 'react';
 import NoteBookBody from './Body';
 import './index.scss';
 
-const NoteBookPage: React.FC = () => {
+const TodoPage: React.FC = () => {
   return (
     <div id="notebook_page">
       <NoteBookBody />
@@ -10,4 +10,4 @@ const NoteBookPage: React.FC = () => {
   );
 };
 
-export default NoteBookPage;
+export default TodoPage;

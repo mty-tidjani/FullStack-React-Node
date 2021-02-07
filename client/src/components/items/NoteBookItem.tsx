@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import { NoteBook } from '../../types/model';
 import { strRandom } from '../../utils/helpers';
 
@@ -21,9 +21,9 @@ const NoteItem: React.FC<NoteItemProps> = (props) => {
         <div className="card-body">
           {note.desc}
           <div className="text-right">
-            <NavLink className="card_link" to={`/notebook/${note._id}`}>
+            <Link className="card_link" to={`/notebook/${note._id}`}>
               View Note
-            </NavLink>
+            </Link>
           </div>
         </div>
       </div>

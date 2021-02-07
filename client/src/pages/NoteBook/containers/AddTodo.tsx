@@ -1,9 +1,10 @@
 import React from 'react';
+import CreateTodo from '../../../components/forms/CreateTodo';
 
 const AddTodo: React.FC = () => {
   return (
     <div>
-      <h1>Add todo</h1>
+      <CreateTodo />
     </div>
   );
 };

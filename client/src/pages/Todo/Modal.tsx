@@ -4,7 +4,7 @@ import BaseModal from '../../components/modals/BaseModal';
 import NoteBookBody from './Body';
 import './index.scss';
 
-const NoteBookModal: React.FC = () => {
+const TodoModal: React.FC = () => {
   const history = useHistory();
   return (
     <BaseModal
@@ -18,4 +18,4 @@ const NoteBookModal: React.FC = () => {
   );
 };
 
-export default NoteBookModal;
+export default TodoModal;
