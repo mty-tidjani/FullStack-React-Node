@@ -1,0 +1,28 @@
+#notebook_main {
+  display: flex;
+  margin-top: -56px;
+
+  .main {
+    flex: 1;
+
+    .tittle {
+      background-color: #343942;
+      color: #fff;
+      padding: 6px;
+      position: sticky;
+
+      h3 {
+        margin: 0;
+      }
+    }
+  }
+}
+
+#todos {
+  .manu-area {
+    background: #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+}
