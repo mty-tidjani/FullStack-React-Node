@@ -13,6 +13,7 @@ export const sendResp = (res: Response, msg: IResponseMessage, result?: unknown)
 };
 
 export const handleError = (res: Response, err: Error, result?: unknown): unknown => {
+  global.logger.error(err);
   return res.status(500).json({
     success: false,
     message: 'Internal server error',

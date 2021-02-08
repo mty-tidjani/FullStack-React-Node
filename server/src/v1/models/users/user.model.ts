@@ -17,8 +17,7 @@ export interface IUser extends Document {
 }
 
 const userSchema:Schema<IUser> = new Schema({
-  scd /* USER_STATUS_CODES */: { type: String, maxlength: 2 }, 
-  custUrl /* CUSTOM_URL */: { type: String, unique: true, index: true },
+  scd /* USER_STATUS_CODES */: { type: String, maxlength: 2 },
   email /* USR_NM */: { type: String, unique: true },
   usrNM /* USR_NM */: { type: String },
   pwdHash /* PASSWORD_HASH */: { type: String, select: false },

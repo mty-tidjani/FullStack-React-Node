@@ -15,3 +15,7 @@ coverage
 
 # nyc test coverage
 .nyc_output
+
+# build folder
+client
+build

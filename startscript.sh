@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 cd ./server
-#yarn
+#yarn 
 yarn run build
 rm -r ./client || true
 

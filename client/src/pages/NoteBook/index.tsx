@@ -20,7 +20,7 @@ const NoteBookPage: React.FC = () => {
       </div>
       <div className="main">
         <div className="tittle">
-          <h3 className="text-center">The holy note name here..</h3>
+          <h3 className="text-center">The NoteBook name..</h3>
         </div>
         <div className="bg-white">
           <Switch>

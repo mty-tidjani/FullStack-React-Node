@@ -33,78 +33,7 @@ const Home: React.FC<WithSessionProps> = ({ notebooks }) => {
             <div className="card-body">
               <h4 className="header-title">Recent Todos</h4>
               <div className="according accordion-s2" id="accordion5">
-                <div className="card">
-                  <div className="card-header">
-                    <a
-                      className="collapsed card-link"
-                      data-toggle="collapse"
-                      href="#accordion51"
-                    >
-                      Collapsible Group Item #1
-                    </a>
-                  </div>
-                  <div
-                    className="collapse"
-                    data-parent="#accordion5"
-                    id="accordion51"
-                  >
-                    <div className="card-body">
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Nemo eaque porro alias assumenda accusamus incidunt odio
-                      molestiae maxime quo atque in et quaerat, vel unde aliquam
-                      aperiam quidem consectetur omnis dicta officiis? Dolorum,
-                      error dolorem!
-                    </div>
-                  </div>
-                </div>
-                <div className="card">
-                  <div className="card-header">
-                    <a
-                      className="collapsed card-link"
-                      data-toggle="collapse"
-                      href="#accordion52"
-                    >
-                      Collapsible Group Item #2
-                    </a>
-                  </div>
-                  <div
-                    className="collapse"
-                    data-parent="#accordion5"
-                    id="accordion52"
-                  >
-                    <div className="card-body">
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Nemo eaque porro alias assumenda accusamus incidunt odio
-                      molestiae maxime quo atque in et quaerat, vel unde aliquam
-                      aperiam quidem consectetur omnis dicta officiis? Dolorum,
-                      error dolorem!
-                    </div>
-                  </div>
-                </div>
-                <div className="card">
-                  <div className="card-header">
-                    <a
-                      className="collapsed card-link"
-                      data-toggle="collapse"
-                      href="#accordion53"
-                    >
-                      Collapsible Group Item #3
-                    </a>
-                  </div>
-                  <div
-                    className="collapse"
-                    data-parent="#accordion5"
-                    id="accordion53"
-                  >
-                    <div className="card-body">
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Nemo eaque porro alias assumenda accusamus incidunt odio
-                      molestiae maxime quo atque in et quaerat, vel unde aliquam
-                      aperiam quidem consectetur omnis dicta officiis? Dolorum,
-                      error dolorem!
-                    </div>
-                  </div>
-                </div>
+                <h3>No recent todo here!</h3>
               </div>
             </div>
           </div>

@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import withSession, { WithSessionProps } from '../../Hocs/with.session';
+import StorageManager from '../../utils/storage.manager';
+import Lnk from '../common/Lnk';
 import AddNoteModal from '../modals/AddNoteModal';
 
 const Layout: React.FC<WithSessionProps> = ({
@@ -178,15 +180,20 @@ const Layout: React.FC<WithSessionProps> = ({
                   <i className="fa fa-angle-down" />
                 </h4>
                 <div className="dropdown-menu">
-                  <a className="dropdown-item" href="?">
+                  {/* <a className="dropdown-item" href="?">
                     Message
                   </a>
                   <a className="dropdown-item" href="?">
                     Settings
-                  </a>
-                  <a className="dropdown-item" href="?">
+                  </a> */}
+                  <Lnk
+                    className="dropdown-item"
+                    onClick={() => {
+                      StorageManager.logoutUser();
+                    }}
+                  >
                     Log Out
-                  </a>
+                  </Lnk>
                 </div>
               </div>
             </div>

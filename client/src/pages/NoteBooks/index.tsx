@@ -6,7 +6,7 @@ const NoteBooks: React.FC<WithSessionProps> = ({ notebooks }) => {
   return (
     <div className="main-content-inner" id="notebook_main">
       {/* <!-- accroding start --> */}
-      <div className="row w-100">
+      <div className="mt-5 w-100">
         {/* <!-- accordion style 2 start --> */}
         <div className="col-lg-8 mt-5 ml-auto mr-auto">
           <div className="card">

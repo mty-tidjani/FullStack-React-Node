@@ -23,7 +23,8 @@ export class AuthController {
         lang: 'en',
       });
 
-      // await user.save();
+      await user.save();
+      
       const rtn = { user: { _id: user._id, usrNM: user.usrNM }, token: ''};
       rtn.token = await jwtTokenGenerator({
         uid: user._id,

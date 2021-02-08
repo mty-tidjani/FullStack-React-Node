@@ -36,7 +36,19 @@ class App {
   
   private routes(): void {
     this.app.use(ApiRoutes.path, ApiRoutes.router);
-      
+
+    // This can be commented if client and server are on diffferent domains
+    // If you use startscript.sh or docker-compose you should not change anything here.
+    this.app.use(express.static(path.join(__dirname, '../client')));
+
+    this.app.get('*', (req, res) => {
+      if (process.env.NODE_ENV === 'production') {
+        return res.sendFile(path.resolve(__dirname, '../client', 'index.html'));
+      }
+      return res.json({ message: 'React Starter API' });
+    });
+
+    // Redirect other request to 
     this.app.use((_req, res) => {
       res.status(404).json({
         success: false,

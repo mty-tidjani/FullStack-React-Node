@@ -6,6 +6,7 @@
   "scripts": {
     "start": "nodemon --ext ts --watch src --exec ./node_modules/.bin/ts-node ./src/app.ts",
     "test": "jest",
+    "build": "tsc",
     "test:coverage": "jest --coverage"
   },
   "author": "",
