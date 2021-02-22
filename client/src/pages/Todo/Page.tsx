@@ -1,11 +1,11 @@
 import React from 'react';
-import NoteBookBody from './Body';
+import ProjectBody from './Body';
 import './index.scss';
 
 const TodoPage: React.FC = () => {
   return (
-    <div id="notebook_page">
-      <NoteBookBody />
+    <div id="project_page">
+      <ProjectBody />
     </div>
   );
 };

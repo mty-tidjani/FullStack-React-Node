@@ -7,4 +7,4 @@ export const AUTH = `${base}/auth`;
 export const AUTH_SIGNUP = `${AUTH}/signup`;
 export const AUTH_SIGNIN = `${AUTH}/signin`;
 
-export const NOTE = `${base}/notebook`;
+export const NOTE = `${base}/project`;

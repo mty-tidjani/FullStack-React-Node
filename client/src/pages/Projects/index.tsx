@@ -1,23 +1,23 @@
 import React from 'react';
-import NoteBookItem from '../../components/items/NoteBookItem';
+import ProjectItem from '../../components/items/ProjectItem';
 import withSession, { WithSessionProps } from '../../Hocs/with.session';
 
-const NoteBooks: React.FC<WithSessionProps> = ({ notebooks }) => {
+const Projects: React.FC<WithSessionProps> = ({ projects }) => {
   return (
-    <div className="main-content-inner" id="notebook_main">
+    <div className="main-content-inner" id="project_main">
       {/* <!-- accroding start --> */}
       <div className="mt-5 w-100">
         {/* <!-- accordion style 2 start --> */}
         <div className="col-lg-8 mt-5 ml-auto mr-auto">
           <div className="card">
             <div className="card-body">
-              <h4 className="header-title">NoteBooks</h4>
+              <h4 className="header-title">Projects</h4>
               <div className="according gradiant-bg" id="accordion2">
-                {notebooks.length === 0 && (
-                  <h2 className="text-center"> No notebooks yet!</h2>
+                {projects.length === 0 && (
+                  <h2 className="text-center"> No projects yet!</h2>
                 )}
-                {notebooks.map((note) => (
-                  <NoteBookItem key={note._id} note={note} />
+                {projects.map((note) => (
+                  <ProjectItem key={note._id} note={note} />
                 ))}
               </div>
             </div>
@@ -30,4 +30,4 @@ const NoteBooks: React.FC<WithSessionProps> = ({ notebooks }) => {
   );
 };
 
-export default withSession(NoteBooks);
+export default withSession(Projects);

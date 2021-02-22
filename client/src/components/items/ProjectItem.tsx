@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { NoteBook } from '../../types/model';
+import { Project } from '../../types/model';
 import { strRandom } from '../../utils/helpers';
 
 type NoteItemProps = {
-  note: NoteBook;
+  note: Project;
 };
 
 const NoteItem: React.FC<NoteItemProps> = (props) => {
@@ -21,7 +21,7 @@ const NoteItem: React.FC<NoteItemProps> = (props) => {
         <div className="card-body">
           {note.desc}
           <div className="text-right">
-            <Link className="card_link" to={`/notebook/${note._id}`}>
+            <Link className="card_link" to={`/project/${note._id}`}>
               View Note
             </Link>
           </div>

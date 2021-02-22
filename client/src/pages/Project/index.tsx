@@ -8,19 +8,19 @@ import Settings from './containers/Settings';
 import Todos from './containers/Todos';
 import './index.scss';
 
-const NoteBookPage: React.FC = () => {
+const ProjectPage: React.FC = () => {
   const { bookId }: any = useParams();
 
   const links = linksNB(bookId);
 
   return (
-    <div className="main-content-inner p-0" id="notebook_main">
+    <div className="main-content-inner p-0" id="project_main">
       <div>
         <SideBar bookId={bookId} />
       </div>
       <div className="main">
         <div className="tittle">
-          <h3 className="text-center">The NoteBook name..</h3>
+          <h3 className="text-center">The Project name..</h3>
         </div>
         <div className="bg-white">
           <Switch>
@@ -36,4 +36,4 @@ const NoteBookPage: React.FC = () => {
   );
 };
 
-export default NoteBookPage;
+export default ProjectPage;

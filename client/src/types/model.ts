@@ -1,4 +1,4 @@
-export type NoteBook = {
+export type Project = {
   _id: string;
   crtBy: /* CREATED_BY */ string;
   scd: /* STATUS_CODE */ string;

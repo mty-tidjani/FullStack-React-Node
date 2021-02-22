@@ -6,7 +6,7 @@ export const todoSCD = {
   deleted: '9',
 };
 
-export const noteBookSCD = {
+export const projectSCD = {
   available: 0,
   deleted: '9',
 };

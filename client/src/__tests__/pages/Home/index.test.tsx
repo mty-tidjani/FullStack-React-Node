@@ -1,22 +1,21 @@
 import React from 'react';
 // import { render, screen } from '@testing-library/react';
-import { shallow, ShallowWrapper } from 'enzyme';
-import { Provider } from 'react-redux';
 import Home from '../../../pages/Home';
-import { configureStore } from '../../../store';
+import { render } from '../../../test.utils';
 
 describe('Render home', () => {
-  let wrapper: ShallowWrapper<any>;
-  beforeEach(() => {
-    wrapper = shallow(
-      <Provider store={configureStore()}>
-        <Home />
-      </Provider>
-    );
-  });
+  // let wrapper: ;
+
+  // beforeEach(() => {
+
+  // });
 
   it('should check if Home is rendered', () => {
+    const wrapper = render(<Home projects={[]} />, {
+      initialState: { projects: [] },
+    });
     // Fixing test before checking a solution for redux
-    expect(wrapper.find(Home)).toHaveLength(1);
+
+    expect(wrapper.getAllByText(/Projects/i).length).toBeGreaterThanOrEqual(1);
   });
 });

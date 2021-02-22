@@ -12,7 +12,7 @@ import LocalStorageManager from '../../utils/storage.manager';
 const initialState: AppState = {
   sesUser: LocalStorageManager.getUserData(),
   addNoteLodx: '0',
-  notebooks: [],
+  projects: [],
 };
 
 export const appReducer: Reducer<AppState, ReduxAction> = (
@@ -40,11 +40,11 @@ export const appReducer: Reducer<AppState, ReduxAction> = (
         break;
       case `${aat.ADD_NOTE}_FULFILLED`:
         draft.addNoteLodx = '1';
-        draft.notebooks = [...state.notebooks, payload];
+        draft.projects = [...state.projects, payload];
         break;
-      case `${aat.LOAD_NOTEBOOKS}_FULFILLED`:
+      case `${aat.LOAD_PROJECTS}_FULFILLED`:
         // test if array because response was not checked.
-        if (Array.isArray(payload)) draft.notebooks = payload;
+        if (Array.isArray(payload)) draft.projects = payload;
         break;
       default:
         break;

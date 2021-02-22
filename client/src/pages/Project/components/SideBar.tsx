@@ -6,7 +6,7 @@ type SideBarProps = {
 };
 
 export const linksNB = (bookId: string) => {
-  const base = `/notebook/${bookId}`;
+  const base = `/project/${bookId}`;
   return {
     base,
     add: `${base}/add`,
@@ -22,7 +22,7 @@ const SideBar: React.FC<SideBarProps> = ({ bookId }) => {
     <div className="sidebar-menu">
       <div className="sidebar-header">
         <div className="logo text-white">
-          <Link to="/notebook">NoteBooks</Link>
+          <Link to="/project">Project</Link>
         </div>
       </div>
       <div className="main-menu">
