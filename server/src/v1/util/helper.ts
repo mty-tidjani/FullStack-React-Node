@@ -7,7 +7,7 @@ export const isValidEmail = (email: string): email is string => {
 
   
 export const sanitizeEmail = (email: string): string|null => {
-  if (!isValidEmail(email)) return 'null';
+  if (!isValidEmail(email)) return null;
   const str = email.toLowerCase();
   if (str.split('.').length === 2) return str;
   const rtn = str.split('@'); 

@@ -1,17 +1,17 @@
 import { Request, Response } from "express";
-import { noteBookSCD, SUCCESS } from "../../constant";
-import { NoteBook } from "../../models/notebook/notebook.model";
+import { projectSCD, SUCCESS } from "../../constant";
+import { Project } from "../../models/project/project.model";
 import { RichRequest } from "../../types/common";
 import { handleError, sendResp } from "../../util";
 
-export class NoteBookController {
+export class ProjectController {
   public static create = async (req: RichRequest, res: Response): Promise<unknown> => {
     const { title, desc } = req.body;
     const { userId } = req;
     try {
-      const nbk = await NoteBook.create({
+      const nbk = await Project.create({
         crtBy /* CREATED_BY */: userId,
-        scd /* STATUS_CODE */: noteBookSCD.available,
+        scd /* STATUS_CODE */: projectSCD.available,
         ttle /* Title */: title,
         desc /* Description */,
         lstUpdt /* Last Update */: Date.now(),
@@ -38,7 +38,7 @@ export class NoteBookController {
   public static getMany = async (req: RichRequest, res: Response): Promise<unknown> => {
     const { userId } = req;
     try {
-      const nbks = await NoteBook.find({ crtBy: userId, scd: noteBookSCD.available });
+      const nbks = await Project.find({ crtBy: userId, scd: projectSCD.available });
 
       return sendResp(res, SUCCESS.DEFAULT, nbks);
     } catch (err) {

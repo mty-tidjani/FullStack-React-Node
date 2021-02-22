@@ -1,7 +1,7 @@
 import { Schema, model, Document, Types } from "mongoose";
 import { MODEL } from "../../constant";
 
-export interface INoteBook extends Document {
+export interface IProject extends Document {
   crtBy /* CREATED_BY */: Types.ObjectId|string,
   scd /* STATUS_CODE */: string,
   ttle /* Title */: string,
@@ -13,7 +13,7 @@ export interface INoteBook extends Document {
   }
 }
 
-const NoteBookSchema:Schema<INoteBook> = new Schema({
+const ProjectSchema:Schema<IProject> = new Schema({
   crtBy /* CREATED_BY */: { type: Types.ObjectId, ref: MODEL.USER},
   scd /* STATUS_CODE */: { type: String },
   ttle /* Title */: { type: String },
@@ -28,5 +28,5 @@ const NoteBookSchema:Schema<INoteBook> = new Schema({
   collection: MODEL.NOTE_BOOK
 });
 
-// Export NoteBook
-export const NoteBook = model<INoteBook>(MODEL.NOTE_BOOK, NoteBookSchema);
+// Export Project
+export const Project = model<IProject>(MODEL.NOTE_BOOK, ProjectSchema);

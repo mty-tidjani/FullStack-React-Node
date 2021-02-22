@@ -1,4 +1,4 @@
-import * as jwt from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 import config from '../../core/config';
 
 export const jwtTokenGenerator = async (data: string|Record<string, unknown>|Buffer): Promise<string> => {
