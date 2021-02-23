@@ -40,6 +40,4 @@ WORKDIR /app/server/
 
 EXPOSE 4040
 
-#ENTRYPOINT ["sh","entrypoint-production.sh"]
-
 CMD ["pm2-runtime", "--name", "todov2",  "--NODE_ENV", "production", "--port", "4040", "build/app.js"]

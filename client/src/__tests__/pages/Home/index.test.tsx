@@ -1,17 +1,20 @@
+import { RenderResult, queries } from '@testing-library/react';
 import React from 'react';
 // import { render, screen } from '@testing-library/react';
 import Home from '../../../pages/Home';
 import { render } from '../../../test.utils';
 
 describe('Render home', () => {
-  // let wrapper: ;
+  let wrapper: RenderResult<typeof queries>;
 
-  // beforeEach(() => {
-
-  // });
+  beforeEach(() => {
+    wrapper = render(<Home projects={[]} />, {
+      initialState: { projects: [] },
+    });
+  });
 
   it('should check if Home is rendered', () => {
-    const wrapper = render(<Home projects={[]} />, {
+    wrapper = render(<Home projects={[]} />, {
       initialState: { projects: [] },
     });
     // Fixing test before checking a solution for redux
