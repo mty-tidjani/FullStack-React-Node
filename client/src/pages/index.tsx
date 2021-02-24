@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { lazy, Suspense, FC } from 'react';
 import {
   Switch,
   BrowserRouter,
@@ -8,11 +8,17 @@ import {
 } from 'react-router-dom';
 import Layout from '../components/Layout';
 import StorageManager from '../utils/storage.manager';
-import Auth from './Auth';
-import Home from './Home';
-import ProjectPage from './Project';
-import Projects from './Projects';
-import TodoModal from './Todo/Modal';
+
+const Loader: FC = () => (
+  <div id="preloader">
+    <div className="loader" />
+  </div>
+);
+
+const Auth: FC = lazy(() => import('./Auth'));
+const Home: FC = lazy(() => import('./Home'));
+const ProjectPage: FC = lazy(() => import('./Project'));
+const TodoModal: FC = lazy(() => import('./Todo/Modal'));
 
 const isLogged = StorageManager.getUserData();
 
@@ -40,7 +46,7 @@ const AuthRoute = ({ component: Component, ...rest }: any) => (
  * @description Contains all routes of the app.
  * @name Routes
  */
-const Routes: React.FC = () => {
+const Routes: FC = () => {
   const location: any = useLocation();
 
   const background = location.state?.background;
@@ -48,13 +54,14 @@ const Routes: React.FC = () => {
   return (
     <>
       <Switch location={background || location}>
-        <AuthRoute component={Auth} path="/" exact />
-        <Layout>
-          <PrivateRoute component={Home} path="/home" />
-          <PrivateRoute component={Projects} path="/project" exact />
-          <PrivateRoute component={ProjectPage} path="/project/:bookId" />
-          <PrivateRoute component={ProjectPage} path="/todo/:todoId" />
-        </Layout>
+        <Suspense fallback={<Loader />}>
+          <AuthRoute component={Auth} path="/" exact />
+          <Layout>
+            <PrivateRoute component={Home} path="/home" />
+            <PrivateRoute component={ProjectPage} path="/project/:bookId" />
+            <PrivateRoute component={ProjectPage} path="/todo/:todoId" />
+          </Layout>
+        </Suspense>
       </Switch>
 
       {background && (
@@ -67,7 +74,7 @@ const Routes: React.FC = () => {
 };
 
 // App component
-const App: React.FC = () => (
+const App: FC = () => (
   <BrowserRouter>
     <Routes />
   </BrowserRouter>

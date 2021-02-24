@@ -153,7 +153,7 @@ const Layout: React.FC<WithSessionProps> = ({
                           Home
                         </NavLink>
                       </li>
-                      <li className="nav-item">
+                      {/* <li className="nav-item">
                         <NavLink
                           activeClassName="active"
                           className="nav-link"
@@ -161,7 +161,7 @@ const Layout: React.FC<WithSessionProps> = ({
                         >
                           Projects
                         </NavLink>
-                      </li>
+                      </li> */}
                       <li className="nav-item">
                         <AddNoteModal />
                       </li>
