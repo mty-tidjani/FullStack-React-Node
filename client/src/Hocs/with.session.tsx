@@ -6,7 +6,7 @@ import {
   getUserSession,
   resetLoaders,
   saveSessionData,
-  loadNoteBooksQry,
+  loadProjectsQry,
 } from '../store/app/actions';
 
 export type WithSessionProps = AppState & {
@@ -14,7 +14,7 @@ export type WithSessionProps = AppState & {
   getSession: () => void;
   addNote: (title: string, desc: string) => void;
   resetLoaders: () => void;
-  loadNoteBooks: () => void;
+  loadProjects: () => void;
 };
 
 export default <P extends WithSessionProps>(
@@ -46,7 +46,7 @@ export default <P extends WithSessionProps>(
     addNote: (title: string, desc: string) =>
       dispatch(addNoteQry({ title, desc })),
     resetLoaders: () => dispatch(resetLoaders()),
-    loadNoteBooks: () => dispatch(loadNoteBooksQry()),
+    loadProjects: () => dispatch(loadProjectsQry()),
   });
 
   return connect(mapStateToProps, mapDispatchToProps)(WithSessionHoc_);

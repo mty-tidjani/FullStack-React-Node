@@ -1,44 +1,29 @@
 import React from 'react';
-import NoteBookItem from '../../components/items/NoteBookItem';
+import ProjectItem from '../../components/items/ProjectItem';
 import withSession, { WithSessionProps } from '../../Hocs/with.session';
 
-const Home: React.FC<WithSessionProps> = ({ notebooks }) => {
+const Home: React.FC<WithSessionProps> = ({ projects }) => {
   return (
     <div className="main-content-inner" id="home_main">
       {/* <!-- accroding start --> */}
-      <div className="row">
+      <div className="mt-5 w-100">
         {/* <!-- accordion style 2 start --> */}
-        <div className="col-lg-6 mt-5">
+        <div className="col-lg-8 mt-5 ml-auto mr-auto">
           <div className="card">
             <div className="card-body">
-              <h4 className="header-title">NoteBooks</h4>
-              <div
-                className="according accordion-s2 gradiant-bg"
-                id="accordion2"
-              >
-                {notebooks.length === 0 && (
-                  <h2 className="text-center"> No notebooks yet!</h2>
+              <h4 className="header-title">Projects</h4>
+              <div className="according gradiant-bg" id="accordion2">
+                {projects.length === 0 && (
+                  <h2 className="text-center"> No projects yet!</h2>
                 )}
-                {notebooks.map((note) => (
-                  <NoteBookItem key={note._id} note={note} />
+                {projects.map((note) => (
+                  <ProjectItem key={note._id} note={note} />
                 ))}
               </div>
             </div>
           </div>
         </div>
         {/* <!-- accordion style 2 end --> */}
-        {/* <!-- accordion style 3 start --> */}
-        <div className="col-lg-6 mt-5">
-          <div className="card">
-            <div className="card-body">
-              <h4 className="header-title">Recent Todos</h4>
-              <div className="according accordion-s2" id="accordion5">
-                <h3>No recent todo here!</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* <!-- accordion style 5 end --> */}
       </div>
       {/* <!-- accroding end --> */}
     </div>

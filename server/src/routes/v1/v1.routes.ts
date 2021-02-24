@@ -3,7 +3,7 @@ import { BaseRoute } from "../base.routes";
 import { UserRoutes } from "./user";
 import { AuthRoutes } from "./user";
 import { TodoRoutes } from "./todo/todo.routes";
-import { NoteBookRoutes } from "./notebook/notebook.routes";
+import { ProjectRoutes } from "./project/project.routes";
 
 
 export class V1Routes extends BaseRoute {
@@ -26,7 +26,7 @@ export class V1Routes extends BaseRoute {
   private init() {
     this.router.use(UserRoutes.path, UserRoutes.router);
     this.router.use(AuthRoutes.path, AuthRoutes.router);
-    this.router.use(NoteBookRoutes.path, NoteBookRoutes.router);
+    this.router.use(ProjectRoutes.path, ProjectRoutes.router);
     this.router.use(TodoRoutes.path, TodoRoutes.router);
   }
 }

@@ -1,5 +1,5 @@
 import { Action } from 'redux';
-import { NoteBook, User } from './model';
+import { Project, User } from './model';
 
 export type ReduxAction = {
   type: string;
@@ -13,5 +13,5 @@ export type RootState = {
 export type AppState = {
   sesUser: User | null;
   addNoteLodx: '0' | '1' | '3'; // Pending|succes|error
-  notebooks: NoteBook[];
+  projects: Project[];
 };

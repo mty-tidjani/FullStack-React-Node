@@ -3,17 +3,17 @@ import { NavLink } from 'react-router-dom';
 import withSession, { WithSessionProps } from '../../Hocs/with.session';
 import StorageManager from '../../utils/storage.manager';
 import Lnk from '../common/Lnk';
-import AddNoteModal from '../modals/AddNoteModal';
+import AddNoteModal from '../modals/AddProjectModal';
 
 const Layout: React.FC<WithSessionProps> = ({
   children,
   getSession,
-  loadNoteBooks,
+  loadProjects,
   sesUser,
 }) => {
   useEffect(() => {
     getSession();
-    loadNoteBooks();
+    loadProjects();
   }, []);
 
   return (
@@ -153,15 +153,15 @@ const Layout: React.FC<WithSessionProps> = ({
                           Home
                         </NavLink>
                       </li>
-                      <li className="nav-item">
+                      {/* <li className="nav-item">
                         <NavLink
                           activeClassName="active"
                           className="nav-link"
-                          to="/notebook"
+                          to="/project"
                         >
-                          NoteBooks
+                          Projects
                         </NavLink>
-                      </li>
+                      </li> */}
                       <li className="nav-item">
                         <AddNoteModal />
                       </li>

@@ -1,13 +1,15 @@
 #project_main {
   display: flex;
+  margin-top: -56px;
 
   .main {
     flex: 1;
 
     .tittle {
-      background-color: #343942;
+      background-color: #004a6f;
       color: #fff;
       padding: 6px;
+      position: sticky;
 
       h3 {
         margin: 0;

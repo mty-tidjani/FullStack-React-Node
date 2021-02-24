@@ -57,8 +57,8 @@ export const resetLoaders = (): ReduxAction => ({
   payload: undefined,
 });
 
-export const loadNoteBooksQry = (): ReduxAction => ({
-  type: aat.LOAD_NOTEBOOKS,
+export const loadProjectsQry = (): ReduxAction => ({
+  type: aat.LOAD_PROJECTS,
   async payload(): Promise<any> {
     try {
       const res: AxiosResponse = await httpClient.get(NOTE);

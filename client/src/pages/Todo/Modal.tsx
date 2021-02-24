@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import BaseModal from '../../components/modals/BaseModal';
-import NoteBookBody from './Body';
+import ProjectBody from './Body';
 import './index.scss';
 
 const TodoModal: React.FC = () => {
@@ -13,7 +13,7 @@ const TodoModal: React.FC = () => {
       isOpen
       onClosed={() => history.goBack()}
     >
-      <NoteBookBody />
+      <ProjectBody />
     </BaseModal>
   );
 };
