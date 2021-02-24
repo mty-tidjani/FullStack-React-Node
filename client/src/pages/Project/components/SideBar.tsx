@@ -9,7 +9,7 @@ export const linksNB = (bookId: string) => {
   const base = `/project/${bookId}`;
   return {
     base,
-    add: `${base}/add`,
+    add: `${base}/roles`,
     members: `${base}/members`,
     about: `${base}/about`,
     settings: `${base}/settings`,
@@ -22,7 +22,7 @@ const SideBar: React.FC<SideBarProps> = ({ bookId }) => {
     <div className="sidebar-menu">
       <div className="sidebar-header">
         <div className="logo text-white">
-          <Link to="/project">Project</Link>
+          <Link to="/">Go Home</Link>
         </div>
       </div>
       <div className="main-menu">
@@ -35,16 +35,16 @@ const SideBar: React.FC<SideBarProps> = ({ bookId }) => {
                   <span>Todos</span>
                 </NavLink>
               </li>
-              <li className="active">
-                <NavLink activeClassName="active" to={links.add}>
-                  <i className="fa fa-table" />
-                  <span>Add todos</span>
-                </NavLink>
-              </li>
               <li>
                 <NavLink activeClassName="active" to={links.members}>
                   <i className="fa fa-table" />
                   <span>Members</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink activeClassName="active" to={links.add}>
+                  <i className="fa fa-table" />
+                  <span>Project Roles</span>
                 </NavLink>
               </li>
               <li>

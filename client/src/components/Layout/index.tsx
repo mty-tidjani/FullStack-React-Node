@@ -22,8 +22,12 @@ const Layout: React.FC<WithSessionProps> = ({
         {/* <!-- header area start --> */}
         <div className="header-area">
           <div className="row align-items-center">
+            {/* Title */}
+            <div className="col-md-4 col-sm-8 clearfix">
+              <h2>Scrumboard</h2>
+            </div>
             {/* <!-- nav and search button --> */}
-            <div className="col-md-6 col-sm-8 clearfix">
+            <div className="col-md-4 col-sm-8 clearfix">
               <div className="search-box pull-left">
                 <form action="#">
                   <input
@@ -37,7 +41,7 @@ const Layout: React.FC<WithSessionProps> = ({
               </div>
             </div>
             {/* <!-- profile info & task notification --> */}
-            <div className="col-md-6 col-sm-4 clearfix">
+            <div className="col-md-4 col-sm-4 clearfix">
               <ul className="notification-area pull-right">
                 <li className="dropdown">
                   <i

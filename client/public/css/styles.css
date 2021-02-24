@@ -92,7 +92,7 @@
 .main-content {
     width: 100%;
     background: #F3F8FB;
-    min-height: calc(100vh - 66px);
+    min-height: 100vh;
 }
 
 .main-content-inner {
@@ -141,8 +141,8 @@
 
 .sidebar-header {
     padding: 19px 32px 20px;
-    background: #303641;
-    border-bottom: 1px solid #343e50;
+    background: #004a6f;
+    border-bottom: 1px solid #004a6f;
 }
 .sidebar-menu .logo{
     text-align: center;
@@ -150,7 +150,8 @@
 .logo a {
     display: inline-block;
     max-width: 120px;
-    background: #fff;
+    background: #092f42;
+    color: #fff;
     padding: 0px 8px;
 }
 
@@ -212,7 +213,7 @@
 .metismenu >li:hover>a,
 .metismenu > li a.active {
     color: #fff;
-    background: #343942;
+    background: #013954;
 }
 
 .metismenu li:hover>a,

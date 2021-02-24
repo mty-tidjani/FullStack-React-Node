@@ -31,12 +31,12 @@ const CreateNote: React.FC<CreateNoteProps> = ({
           <h4 className="header-title">Add Project</h4>
           <form onSubmit={submit}>
             <div className="form-group">
-              <label htmlFor="esghrtd">Note title</label>
+              <label htmlFor="esghrtd">Project title</label>
               <input
                 aria-describedby="emailHelp"
                 className="form-control"
                 id="esghrtd"
-                placeholder="Note title"
+                placeholder="Project title"
                 type="text"
                 value={ttle}
                 onChange={(e) => {

@@ -1,28 +1,36 @@
 #project_main {
   display: flex;
   margin-top: -56px;
+  background: #fff;
+
+  &.fullScreen{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 4;
+  }
 
   .main {
     flex: 1;
 
-    .tittle {
-      background-color: #004a6f;
+    .manu-area {
+      background: #004a6f;
       color: #fff;
-      padding: 6px;
       position: sticky;
+      top: 0;
+      z-index: 1;
+      min-height: 50px;
+      align-items: center;
 
-      h3 {
-        margin: 0;
+      a {
+        right: 0;
+        color: #fff;
+        font-size: 18px;
+        margin: 0 5px;
+        padding: 5px;
       }
     }
-  }
-}
-
-#todos {
-  .manu-area {
-    background: #eee;
-    position: sticky;
-    top: 0;
-    z-index: 1;
   }
 }

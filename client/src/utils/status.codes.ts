@@ -1,13 +1,15 @@
 export const todoSCD = {
-  pending: '0',
-  assigned: '1',
-  rejected: '3',
-  done: '4',
+  created: '0',
+  pending: '1',
+  doing: '2',
+  done: '3',
+  approved: '4',
+  removed: '6',
   deleted: '9',
 };
 
 export const projectSCD = {
-  available: 0,
+  available: '0',
   deleted: '9',
 };
 
